@@ -13,6 +13,8 @@ namespace Factory.Controllers
     
     [HttpGet("/")]
     public ActionResult Index() {
+      ViewBag.engineers = _db.Engineers.ToList();
+      ViewBag.machines = _db.Machines.ToList();
       return View();
     }
   }
