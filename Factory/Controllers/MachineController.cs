@@ -13,7 +13,20 @@ namespace Factory.Controllers
     
     [HttpGet("/machine")]
     public ActionResult Index() {
+      List<Machine> allMachines = _db.Machines.ToList();
+      return View(allMachines);
+    }
+
+    [HttpGet("/machine/add")]
+    public ActionResult Add() {
       return View();
+    }
+
+    [HttpPost("/machine/add")]
+    public ActionResult AddConfirm(Machine machine) {
+      _db.Machines.Add(machine);
+      _db.SaveChanges();
+      return Redirect("/machine");
     }
   }
 }
