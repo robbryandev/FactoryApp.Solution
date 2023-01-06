@@ -28,5 +28,19 @@ namespace Factory.Controllers
       _db.SaveChanges();
       return Redirect("/machine");
     }
+
+    [HttpGet("/machine/delete/{id}")]
+    public ActionResult Delete(int id) {
+      Machine thisMachine = _db.Machines.FirstOrDefault(mac => mac.machine_id == id);
+      return View(thisMachine);
+    }
+
+    [HttpPost("/machine/delete/{id}")]
+    public ActionResult DeleteConfirm(int id) {
+      Machine thisMachine = _db.Machines.FirstOrDefault(mac => mac.machine_id == id);
+      _db.Machines.Remove(thisMachine);
+      _db.SaveChanges();
+      return Redirect("/machine");
+    }
   }
 }

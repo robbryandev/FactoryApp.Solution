@@ -16,9 +16,13 @@
     }
     @foreach (Machine mac in machineList)
     {
-      <a href="/machine/@mac.machine_id" class="list-group-item">
-        @mac.name
-      </a> 
+      <div class="list-group-item">
+        <a class="list-link" href="/machine/@mac.machine_id">
+          @mac.name
+        </a>
+        <br>
+        <a class="btn btn-danger mt-2" href="/machine/delete/@mac.machine_id">X</a>
+      </div>
     }
   </div>
 </div>
