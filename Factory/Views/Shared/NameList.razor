@@ -6,13 +6,17 @@
   <div class="list-group">
     @foreach (Engineer eng in engineerList)
     {
-      <a class="list-group-item">
-        @eng.name
-      </a> 
+      <div class="list-group-item">
+        <a class="list-link" href="/engineer/@eng.engineer_id">
+          @eng.name
+        </a>
+        <br>
+        <a class="btn btn-danger mt-2" href="/engineer/delete/@eng.engineer_id">X</a>
+      </div>
     }
     @foreach (Machine mac in machineList)
     {
-      <a class="list-group-item">
+      <a href="/machine/@mac.machine_id" class="list-group-item">
         @mac.name
       </a> 
     }
