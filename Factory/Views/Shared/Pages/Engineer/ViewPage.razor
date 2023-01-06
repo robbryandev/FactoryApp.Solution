@@ -5,6 +5,8 @@
   <a class="btn btn-light" href="/engineer">Back</a>
   <h1>@engineer.name</h1>
   <br>
+  <a class="btn btn-info" href="/engineer/update/@engineer.engineer_id">Edit</a>
+  <br>
   @if (machines.Count() > 0)
   {
     <form action="/engineer/@engineer.engineer_id/add" method="post">

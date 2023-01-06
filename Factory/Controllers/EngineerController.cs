@@ -102,5 +102,20 @@ namespace Factory.Controllers
       _db.SaveChanges();
       return Redirect($"/engineer/{id}");
     }
+   
+   [HttpGet("/engineer/update/{id}")]
+   public ActionResult Update(int id) {
+    Engineer thisEngineer = _db.Engineers.FirstOrDefault(eng => eng.engineer_id == id);
+    return View(thisEngineer);
+   }
+  
+  [HttpPost("/engineer/update/{id}")]
+   public ActionResult UpdateConfirm(int id, string name) {
+    Engineer thisEngineer = _db.Engineers.FirstOrDefault(eng => eng.engineer_id == id);
+    thisEngineer.name = name;
+    _db.Engineers.Update(thisEngineer);
+    _db.SaveChanges();
+    return Redirect($"/engineer/{id}");
+   }
   }
 }
