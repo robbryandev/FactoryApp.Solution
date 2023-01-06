@@ -7,10 +7,10 @@
   <br>
   <a class="btn btn-primary" href="/machine/add">Add a new machine</a>
   <br>
-  <NameList machineList="@machines"/>
+  <NameList machineList="@machines" />
 </div>
 
 @code {
   [Parameter]
-  public List<Machine> machines {get; set;} = new List<Machine>{};
+  public List<Machine> machines { get; set; } = new List<Machine> { };
 }

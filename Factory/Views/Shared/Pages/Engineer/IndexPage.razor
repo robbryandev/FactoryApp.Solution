@@ -7,10 +7,10 @@
   <br>
   <a class="btn btn-primary" href="/engineer/add">Add a new engineer</a>
   <br>
-  <NameList engineerList="@engineers"/>
+  <NameList engineerList="@engineers" />
 </div>
 
 @code {
   [Parameter]
-  public List<Engineer> engineers {get; set;}
+  public List<Engineer> engineers { get; set; }
 }

@@ -5,35 +5,39 @@
   <a class="btn btn-light" href="/machine">Back</a>
   <h1>@machine.name</h1>
   <br>
-  @if (engineers.Count() > 0) {
+  @if (engineers.Count() > 0)
+  {
     <form action="/machine/@machine.machine_id/add" method="post">
       <select class="form-control w-25 m-auto" name="engineer" id="engineer">
         @foreach (Engineer eng in engineers)
         {
           <option value="@eng.engineer_id">@eng.name</option>
-        }  
+        }
       </select>
       <br>
       <button type="submit" class="btn btn-info">Add machine</button>
     </form>
     <br>
   }
-  @if (matches.Count() > 0) {
+  @if (matches.Count() > 0)
+  {
     <h2>Engineers:</h2>
     @for (int i = 0; i < matches.Count(); i++)
     {
       <h3>@(matches[i].name)</h3>
     }
-  } else {
+  }
+  else
+  {
     <h2>@machine.name has no licensed engineers</h2>
   }
 </div>
 
 @code {
   [Parameter]
-  public Machine machine {get; set;}
+  public Machine machine { get; set; }
   [Parameter]
-  public List<Engineer> engineers {get; set;} = new List<Engineer>{};
+  public List<Engineer> engineers { get; set; } = new List<Engineer> { };
   [Parameter]
-  public List<Engineer> matches {get; set;} = new List<Engineer>{};
+  public List<Engineer> matches { get; set; } = new List<Engineer> { };
 }

@@ -10,87 +10,87 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Factory.Migrations
 {
-    [DbContext(typeof(FactoryContext))]
-    [Migration("20230106162835_Initial")]
-    partial class Initial
+  [DbContext(typeof(FactoryContext))]
+  [Migration("20230106162835_Initial")]
+  partial class Initial
+  {
+    protected override void BuildTargetModel(ModelBuilder modelBuilder)
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
-        {
 #pragma warning disable 612, 618
-            modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.0")
-                .HasAnnotation("Relational:MaxIdentifierLength", 64);
+      modelBuilder
+          .HasAnnotation("ProductVersion", "6.0.0")
+          .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
-            modelBuilder.Entity("Factory.Models.Engineer", b =>
-                {
-                    b.Property<int>("engineer_id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+      modelBuilder.Entity("Factory.Models.Engineer", b =>
+          {
+            b.Property<int>("engineer_id")
+                      .ValueGeneratedOnAdd()
+                      .HasColumnType("int");
 
-                    b.Property<string>("name")
-                        .HasColumnType("longtext");
+            b.Property<string>("name")
+                      .HasColumnType("longtext");
 
-                    b.HasKey("engineer_id");
+            b.HasKey("engineer_id");
 
-                    b.ToTable("Engineers");
-                });
+            b.ToTable("Engineers");
+          });
 
-            modelBuilder.Entity("Factory.Models.EngineerMachine", b =>
-                {
-                    b.Property<int>("engineer_machine_id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+      modelBuilder.Entity("Factory.Models.EngineerMachine", b =>
+          {
+            b.Property<int>("engineer_machine_id")
+                      .ValueGeneratedOnAdd()
+                      .HasColumnType("int");
 
-                    b.Property<int>("engineer_id")
-                        .HasColumnType("int");
+            b.Property<int>("engineer_id")
+                      .HasColumnType("int");
 
-                    b.Property<int?>("engineer_id1")
-                        .HasColumnType("int");
+            b.Property<int?>("engineer_id1")
+                      .HasColumnType("int");
 
-                    b.Property<int>("machine_id")
-                        .HasColumnType("int");
+            b.Property<int>("machine_id")
+                      .HasColumnType("int");
 
-                    b.Property<int?>("machine_id1")
-                        .HasColumnType("int");
+            b.Property<int?>("machine_id1")
+                      .HasColumnType("int");
 
-                    b.HasKey("engineer_machine_id");
+            b.HasKey("engineer_machine_id");
 
-                    b.HasIndex("engineer_id1");
+            b.HasIndex("engineer_id1");
 
-                    b.HasIndex("machine_id1");
+            b.HasIndex("machine_id1");
 
-                    b.ToTable("EngineerMachines");
-                });
+            b.ToTable("EngineerMachines");
+          });
 
-            modelBuilder.Entity("Factory.Models.Machine", b =>
-                {
-                    b.Property<int>("machine_id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+      modelBuilder.Entity("Factory.Models.Machine", b =>
+          {
+            b.Property<int>("machine_id")
+                      .ValueGeneratedOnAdd()
+                      .HasColumnType("int");
 
-                    b.Property<string>("name")
-                        .HasColumnType("longtext");
+            b.Property<string>("name")
+                      .HasColumnType("longtext");
 
-                    b.HasKey("machine_id");
+            b.HasKey("machine_id");
 
-                    b.ToTable("Machines");
-                });
+            b.ToTable("Machines");
+          });
 
-            modelBuilder.Entity("Factory.Models.EngineerMachine", b =>
-                {
-                    b.HasOne("Factory.Models.Engineer", "Engineer")
-                        .WithMany()
-                        .HasForeignKey("engineer_id1");
+      modelBuilder.Entity("Factory.Models.EngineerMachine", b =>
+          {
+            b.HasOne("Factory.Models.Engineer", "Engineer")
+                      .WithMany()
+                      .HasForeignKey("engineer_id1");
 
-                    b.HasOne("Factory.Models.Machine", "Machine")
-                        .WithMany()
-                        .HasForeignKey("machine_id1");
+            b.HasOne("Factory.Models.Machine", "Machine")
+                      .WithMany()
+                      .HasForeignKey("machine_id1");
 
-                    b.Navigation("Engineer");
+            b.Navigation("Engineer");
 
-                    b.Navigation("Machine");
-                });
+            b.Navigation("Machine");
+          });
 #pragma warning restore 612, 618
-        }
     }
+  }
 }

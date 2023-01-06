@@ -11,24 +11,28 @@
         <br>
         @if (inputTag.Item2.Count() > 1)
         {
-          <input class="form-control" type="@inputTag.Item1" id="@inputTag.Item2[0]" name="@inputTag.Item2[0]" value="@inputTag.Item2[1]" required>
-        } else {
+          <input class="form-control" type="@inputTag.Item1" id="@inputTag.Item2[0]" name="@inputTag.Item2[0]"
+      value="@inputTag.Item2[1]" required>
+        }
+        else
+        {
           <input class="form-control" type="@inputTag.Item1" id="@inputTag.Item2[0]" name="@inputTag.Item2[0]" required>
         }
       }
     }
     @if (dropDowns.Count > 0)
     {
-    @foreach (KeyValuePair<string, string[]> inputOption in dropDowns)
-    {
-      <label for="@inputOption.Key">@inputOption.Key</label>
-      <br>
-      <select name="@inputOption.Key" id="@inputOption.Key">
-        @foreach (string opt in inputOption.Value) {
-          <option value="@opt">@opt</option>
-        }
-      </select>
-    }
+      @foreach (KeyValuePair<string, string[]> inputOption in dropDowns)
+      {
+        <label for="@inputOption.Key">@inputOption.Key</label>
+        <br>
+        <select name="@inputOption.Key" id="@inputOption.Key">
+          @foreach (string opt in inputOption.Value)
+          {
+            <option value="@opt">@opt</option>
+          }
+        </select>
+      }
     }
     <br>
     <button class="btn btn-info" type="submit">submit</button>
@@ -38,14 +42,14 @@
 
 @code {
   [Parameter]
-  public string title {get; set;} = "title";
+  public string title { get; set; } = "title";
   [Parameter]
-  public string actionPath {get; set;} = "/";
+  public string actionPath { get; set; } = "/";
   [Parameter]
-  public List<(string, string[])> inputs {get; set;} = new List<(string, string[])>{};
+  public List<(string, string[])> inputs { get; set; } = new List<(string, string[])> { };
 
   [Parameter]
-  public Dictionary<string, string[]> dropDowns {get; set;} = new Dictionary<string, string[]>{};
+  public Dictionary<string, string[]> dropDowns { get; set; } = new Dictionary<string, string[]> { };
   [Parameter]
-  public int inputSize {get; set;} = 25;
+  public int inputSize { get; set; } = 25;
 }

@@ -10,7 +10,7 @@ namespace Factory
     static void Main(string[] args)
     {
       WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
-      
+
       builder.Services.AddServerSideBlazor();
       builder.Services.AddControllersWithViews();
 
@@ -33,10 +33,10 @@ namespace Factory
 
       app.UseEndpoints(endpoints =>
       {
-          endpoints.MapControllerRoute(
-              name: "default",
-              pattern: "{controller=Home}/{action=Index}/{id?}");
-          endpoints.MapBlazorHub();
+        endpoints.MapControllerRoute(
+            name: "default",
+            pattern: "{controller=Home}/{action=Index}/{id?}");
+        endpoints.MapBlazorHub();
       });
 
       app.Run();
