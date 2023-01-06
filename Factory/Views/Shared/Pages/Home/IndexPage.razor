@@ -7,25 +7,31 @@
 
   <h2>Engineers:</h2>
   <a class="btn btn-light" href="/engineer">Engineer hub</a>
-  @if (engineers.Count() > 0) {
+  @if (engineers.Count() > 0)
+  {
     <br>
-    <NameList engineerList="@engineers"/>
-  } else {
+    <NameList engineerList="@engineers" />
+  }
+  else
+  {
     <p>There are no engineers yet</p>
   }
   <h2>Machines:</h2>
   <a class="btn btn-light" href="/machine">Machine hub</a>
-  @if (machines.Count() > 0) {
+  @if (machines.Count() > 0)
+  {
     <br>
-    <NameList machineList="@machines"/>
-  } else {
+    <NameList machineList="@machines" />
+  }
+  else
+  {
     <p>There are no machines yet</p>
   }
 </div>
 
 @code {
   [Parameter]
-  public List<Engineer> engineers {get; set;}
+  public List<Engineer> engineers { get; set; }
   [Parameter]
-  public List<Machine> machines {get; set;}
+  public List<Machine> machines { get; set; }
 }

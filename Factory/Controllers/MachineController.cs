@@ -103,19 +103,21 @@ namespace Factory.Controllers
       return Redirect($"/machine/{id}");
     }
 
-   [HttpGet("/machine/update/{id}")]
-   public ActionResult Update(int id) {
-    Machine thisMachine = _db.Machines.FirstOrDefault(mac => mac.machine_id == id);
-    return View(thisMachine);
-   }
-  
-  [HttpPost("/machine/update/{id}")]
-   public ActionResult UpdateConfirm(int id, string name) {
-    Machine thisMachine = _db.Machines.FirstOrDefault(mac => mac.machine_id == id);
-    thisMachine.name = name;
-    _db.Machines.Update(thisMachine);
-    _db.SaveChanges();
-    return Redirect($"/machine/{id}");
-   }
+    [HttpGet("/machine/update/{id}")]
+    public ActionResult Update(int id)
+    {
+      Machine thisMachine = _db.Machines.FirstOrDefault(mac => mac.machine_id == id);
+      return View(thisMachine);
+    }
+
+    [HttpPost("/machine/update/{id}")]
+    public ActionResult UpdateConfirm(int id, string name)
+    {
+      Machine thisMachine = _db.Machines.FirstOrDefault(mac => mac.machine_id == id);
+      thisMachine.name = name;
+      _db.Machines.Update(thisMachine);
+      _db.SaveChanges();
+      return Redirect($"/machine/{id}");
+    }
   }
 }
