@@ -70,6 +70,10 @@ namespace Factory.Controllers
     [HttpPost("/engineer/delete/{id}")]
     public ActionResult DeleteConfirm(int id) {
       Engineer thisEngineer = _db.Engineers.FirstOrDefault(eng => eng.engineer_id == id);
+      List<EngineerMachine> thisMatches = _db.EngineerMachines.Where(engmac => engmac.engineer_id == id).ToList();
+      foreach (EngineerMachine engmac in thisMatches) {
+        _db.EngineerMachines.Remove(engmac);
+      }
       _db.Engineers.Remove(thisEngineer);
       _db.SaveChanges();
       return Redirect("/engineer");

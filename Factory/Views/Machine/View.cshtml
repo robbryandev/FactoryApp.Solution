@@ -1,0 +1,7 @@
+@using Factory.Views.Shared.Pages.Machine
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+  Layout = "_Layout";
+}
+
+<component type="typeof(ViewPage)" render-mode="ServerPrerendered" param-machine="@Model" param-matches="@ViewBag.matches" param-engineers="@ViewBag.engineers"/>
