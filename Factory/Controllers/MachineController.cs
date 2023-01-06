@@ -90,5 +90,17 @@ namespace Factory.Controllers
       _db.SaveChanges();
       return Redirect("/machine");
     }
+
+    [HttpPost("/machine/{id}/remove/{eng}")]
+    public ActionResult Remove(int id, string eng)
+    {
+      EngineerMachine thisLink = _db.EngineerMachines.FirstOrDefault(engmac =>
+        engmac.machine_id == id &&
+        engmac.engineer_id == int.Parse(eng)
+       );
+      _db.EngineerMachines.Remove(thisLink);
+      _db.SaveChanges();
+      return Redirect($"/machine/{id}");
+    }
   }
 }

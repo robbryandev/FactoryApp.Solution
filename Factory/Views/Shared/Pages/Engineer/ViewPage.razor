@@ -22,10 +22,9 @@
   @if (matches.Count() > 0)
   {
     <h2>Machines:</h2>
-    @for (int i = 0; i < matches.Count(); i++)
-    {
-      <h3>@(matches[i].name)</h3>
-    }
+    <ul class="list-group">
+      <RemoveList engineer=@engineer machineList=@matches />
+    </ul>
   }
   else
   {
