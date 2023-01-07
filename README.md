@@ -24,6 +24,7 @@ A basic web app to keep track of what employees have machine licenses
 ### Requirements
 
 - .Net6
+- dotnet tool dotnet-ef
 - MySql Server
 
 ### Setup
