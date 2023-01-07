@@ -1,4 +1,4 @@
-# Eau Claire's Salon
+# Factory App
 
 ## Contributers
 
